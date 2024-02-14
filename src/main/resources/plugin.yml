@@ -1,0 +1,14 @@
+name: GNReport
+version: '${project.version}'
+main: io.github.imaquarius.gnreport.GNReport
+api-version: '1.20'
+commands:
+  report:
+    description: "Used to report a player"
+    usage: "/report [player] [reason]"
+    aliases: []
+    permission: gnreport.command.report
+    permission-message: "You do not have permission to use this command"
+permissions:
+  gnreport.command.report:
+    default: true
