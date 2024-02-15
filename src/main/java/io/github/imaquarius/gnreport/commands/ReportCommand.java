@@ -15,6 +15,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.UUID;
 
 public class ReportCommand implements CommandExecutor, TabExecutor {
 
@@ -48,7 +49,9 @@ public class ReportCommand implements CommandExecutor, TabExecutor {
             return true;
         }
 
-        Report report = new Report(player.getName(), reportedPlayer.getName(), reason, System.currentTimeMillis());
+        String id = UUID.randomUUID().toString().replace("-", "");
+
+        Report report = new Report(player.getName(), reportedPlayer.getName(), reason, System.currentTimeMillis(), id);
         reportManager.saveReport(report);
 
         player.sendMessage("Your report has been filed.");
